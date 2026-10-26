@@ -26,8 +26,8 @@
     // "outDir": "./dist",
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
-    "module": "nodenext",
-    "moduleResolution": "nodenext",
+    "module": "none",
+    //"moduleResolution": "nodenext",
     "target": "esnext",
     "types": [],
     "noEmit": false,
