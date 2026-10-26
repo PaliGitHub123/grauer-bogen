@@ -31,7 +31,7 @@
     "target": "esnext",
     "types": [],
     "noEmit": false,
-    "noEmitOnError": true,
+    "noEmitOnError": false,
     "allowJs": false,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
@@ -80,8 +80,10 @@
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
     "skipLibCheck": true,
-    "outDir": "build",
+    "outDir": "dist",
     "rootDir": ".",
+    //"outFile": "index.js",
+    //"ignoreDeprecations": "6.0"
   },
   "include": [
     "src",
