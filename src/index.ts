@@ -1,11 +1,28 @@
 class Signal<T> {
-    constructor(_value: T) {}
-    update(_value: T) {}
+    private listeners: Array<(value: T) => void> = [];
+
+    constructor(private value: T) {} //private value: method called "Parameter Properties", it declares the variable and sets this.value = value in one
+
+    get(): T{
+        return this.value;
+    }
+
+    update(value: T) {
+        this.value = value;
+        for(const listener of this.listeners){
+            listener(value); //updates all values of all listeners
+        }
+    }
+
+    onUpdate(listener: (value: T) => void){
+        this.listeners.push(listener);
+    }
 }
 
 type TagName =
     "div" |
-    "span";
+    "span"|
+    "p";
 
 type Properties = {
     class?: string,
@@ -61,16 +78,15 @@ type State = {
 };
 
 function renderNavigation(sharedState: State) {
-    const dataPoint = new Signal("foo");
-    dataPoint.update("bar");
+    const counter = new Signal(0);
     e("div", {
         parent: document.body,
-        class: "foo",
-        onClick: sharedState.openSettings,
+        class: "counter",
         children: [
-            dataPoint,
-            e("div", {
-                text: "foo<asdf>",
+            "Clicks: ",
+            e("p", {
+                text: "click me",
+                onClick: () => counter.update(counter.get() + 1)
             }),
         ],
     });
