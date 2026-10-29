@@ -85,4 +85,4 @@ function init() {
     renderNavigation(sharedState);
 }
 
-window.addEventListener("DOMContentReady", init);
+window.addEventListener("DOMContentLoaded", init);
