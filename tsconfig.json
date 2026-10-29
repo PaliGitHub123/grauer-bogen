@@ -1,62 +1,64 @@
 {
   // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
-    //Type checking
+    // ---------- Type Checking ----------
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "alwaysStrict": true,
-    //exactOptionalPropertyTypes
+    "exactOptionalPropertyTypes": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,
     "noImplicitOverride": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noPropertyAccessFromIndexSignature": false,
-    //noUncheckedIndexedAccess
+    "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    //"strict": true,
+    "strict": true,
     "strictBindCallApply": true,
     "strictFunctionTypes": true,
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
     "useUnknownInCatchVariables": true,
-    // File Layout
-    // "rootDir": "./src",
-    // "outDir": "./dist",
-    // Environment Settings
+
+    // ---------- Modules ----------
     // See also https://aka.ms/tsconfig/module
     "module": "none",
-    //"moduleResolution": "nodenext",
-    "target": "esnext",
+    // "moduleResolution": "nodenext",
+    "noUncheckedSideEffectImports": true,
+    "rootDir": ".",
+    // "rootDir": "./src",
     "types": [],
+    // For nodejs:
+    // "types": ["node"],
+    // and npm install -D @types/node
+
+    // ---------- Emit ----------
+    "declaration": false,
+    "declarationMap": false,
     "noEmit": false,
     "noEmitOnError": false,
+    "outDir": "dist",
+    // "outDir": "./dist",
+    // "outFile": "index.js",
+    "sourceMap": true,
+
+    // ---------- JavaScript Support ----------
     "allowJs": false,
+
+    // ---------- Interop Constraints ----------
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": false,
+
+    // ---------- Backwards Compatibility ----------
+    // "ignoreDeprecations": "6.0",
+
+    // ---------- Language and Environment ----------
     "experimentalDecorators": false,
-    // For nodejs:
-    // "lib": ["esnext"],
-    // "types": ["node"],
-    // and npm install -D @types/node
-    // Other Outputs
-    "sourceMap": true,
-    "declaration": false,
-    "declarationMap": false,
-    // Stricter Typechecking Options
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
-    // Style Options
-    // "noImplicitReturns": true,
-    // "noImplicitOverride": true,
-    // "noUnusedLocals": true,
-    // "noUnusedParameters": true,
-    // "noFallthroughCasesInSwitch": true,
-    // "noPropertyAccessFromIndexSignature": true,
-    // Recommended Options
-    "strict": true,
     "jsx": "preserve",
     "lib": [
       "DOM",
@@ -72,20 +74,22 @@
       "ES2023",
       "ESNext"
     ],
+    // For nodejs:
+    // "lib": ["esnext"],
+    "moduleDetection": "force",
+    "target": "esnext",
+
+    // ---------- Projects ----------
     "incremental": true,
     "tsBuildInfoFile": ".tsbuildinfo",
+
+    // ---------- Output Formatting ----------
     "noErrorTruncation": true,
-    "verbatimModuleSyntax": false,
-    "isolatedModules": true,
-    "noUncheckedSideEffectImports": true,
-    "moduleDetection": "force",
-    "skipLibCheck": true,
-    "outDir": "dist",
-    "rootDir": ".",
-    //"outFile": "index.js",
-    //"ignoreDeprecations": "6.0"
+
+    // ---------- Completeness ----------
+    "skipLibCheck": true
   },
   "include": [
-    "src",
-  ],
+    "src"
+  ]
 }
